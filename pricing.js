@@ -1,8 +1,11 @@
 $(() => {
   const price = 299
-  $(".js-button").on("click", function() {
+
+  function showTotal() {
     $(".js-total").text('$' + $(".js-quantity").val() * price)
-  })
+  }
+  $(".js-button").on("click", showTotal)
+  $('.js-quantity').on("change keyup", showTotal)
 })
 
 // $(() => {
