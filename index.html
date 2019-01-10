@@ -5,12 +5,11 @@
     <title>jQuery pet</title>
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.12/handlebars.js"></script>
+    <script src="/pricing.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
 
-    <style>
-
-    </style>
+    <style></style>
   </head>
   <body>
     <div class="card">
@@ -20,14 +19,14 @@
         </p>
       </header>
       <div class="card-content">
-        <div class="content">
+        <div class="js-content content">
           <p>Price:<span>$299</span></p>
-          <input id="quantity" type="number" min="1" step="1">
-          <p>Total: <span>$299</span></p>
+          <input class="js-quantity" id="quantity" type="number" min="1" step="1">
+          <p class="js-total-para">Total: <span class="js-total">$299</span></p>
         </div>
       </div>
       <footer class="card-footer">
-        <button class="button">Calculate</button>
+        <button class="button js-button">Calculate</button>
       </footer>
     </div>
   </body>
