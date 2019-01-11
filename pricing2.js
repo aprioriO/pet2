@@ -18,11 +18,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
   var newTotal = inputValue * price
   console.log(newTotal);
+
+  totalElement.innerHTML = "$" + newTotal
+  console.log(`my new total is ${totalElement.innerText}`);
+
   var myButton = document.getElementById('js-btn')
   console.log(`my botton is: ${myButton}`);
   myButton.addEventListener('click', function () {
     console.log('I am clicked');
   })
+
 });
 
 
