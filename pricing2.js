@@ -2,40 +2,39 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log('Your document is ready!');
 
   const price = 299;
-  var  elementCollection = document.getElementsByClassName('js-total')
-  console.log (elementCollection);
 
-  var totalElement = elementCollection.item(0) // find span element with initial total value
-  console.log(totalElement);
+  function showTotal() {
+    var  elementCollection = document.getElementsByClassName('js-total')
+    console.log (elementCollection);
 
-  // var inputElement = document.getElementById('quantity')
-  // var inputValue = inputElement.value
+    var totalElement = elementCollection.item(0) // find span element with initial total value
+    console.log(totalElement);
 
-  var inputElementCollection = document.getElementsByClassName('js-quantity')
-  var inputElement = inputElementCollection.item(0)
-  var inputValue = inputElement.value
-  console.log(`inputValue: ${inputValue}`);
+    // var inputElement = document.getElementById('quantity')
+    // var inputValue = inputElement.value
 
-  var newTotal = inputValue * price
-  console.log(newTotal);
+    var inputElementCollection = document.getElementsByClassName('js-quantity')
+    var inputElement = inputElementCollection.item(0)
+    var inputValue = inputElement.value
+    console.log(`inputValue: ${inputValue}`);
+    var myButton = document.getElementById('js-btn')
+    console.log(`my botton is: ${myButton}`);
 
-  totalElement.innerHTML = "$" + newTotal
-  console.log(`my new total is ${totalElement.innerText}`);
+    var newTotal = inputValue * price
+    console.log(newTotal);
+    totalElement.innerHTML = "$" + newTotal
+    console.log(`my new total is ${totalElement.innerText}`);
 
-  var myButton = document.getElementById('js-btn')
-  console.log(`my botton is: ${myButton}`);
-  myButton.addEventListener('click', function () {
-    console.log('I am clicked');
-  })
+    myButton.addEventListener("click", showTotal)
+      // console.log('I am clicked');
 
-  inputElement.addEventListener('keyup', function () {
-    console.log("Key up");
-  })
+    inputElement.addEventListener("keyup", showTotal)
+      // console.log("Key up");
 
-  inputElement.addEventListener('change', function () {
-    console.log("Change");
-  })
-
+    inputElement.addEventListener("change", showTotal)
+      // console.log("Change");
+  }
+  showTotal()
 });
 
 
