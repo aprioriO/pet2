@@ -28,6 +28,14 @@ document.addEventListener("DOMContentLoaded", function() {
     console.log('I am clicked');
   })
 
+  inputElement.addEventListener('keyup', function () {
+    console.log("Key up");
+  })
+
+  inputElement.addEventListener('change', function () {
+    console.log("Change");
+  })
+
 });
 
 
