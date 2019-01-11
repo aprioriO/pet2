@@ -5,7 +5,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function showTotal() {
     var totalElement = document.getElementsByClassName('js-total').item(0) // find span element with initial total value
-    var inputValue = document.getElementsByClassName('js-quantity').item(0).value
+    var inputElement = document.getElementsByClassName('js-quantity').item(0)
+    var inputValue = inputElement.value
     var myButton = document.getElementById('js-btn')
 
     var newTotal = inputValue * price
