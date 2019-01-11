@@ -5,34 +5,23 @@ document.addEventListener("DOMContentLoaded", function() {
 
   function showTotal() {
     var  elementCollection = document.getElementsByClassName('js-total')
-    console.log (elementCollection);
 
     var totalElement = elementCollection.item(0) // find span element with initial total value
-    console.log(totalElement);
-
-    // var inputElement = document.getElementById('quantity')
-    // var inputValue = inputElement.value
 
     var inputElementCollection = document.getElementsByClassName('js-quantity')
     var inputElement = inputElementCollection.item(0)
     var inputValue = inputElement.value
-    console.log(`inputValue: ${inputValue}`);
     var myButton = document.getElementById('js-btn')
-    console.log(`my botton is: ${myButton}`);
 
     var newTotal = inputValue * price
-    console.log(newTotal);
     totalElement.innerHTML = "$" + newTotal
-    console.log(`my new total is ${totalElement.innerText}`);
+    // console.log(`my new total is ${totalElement.innerText}`);
 
     myButton.addEventListener("click", showTotal)
-      // console.log('I am clicked');
 
     inputElement.addEventListener("keyup", showTotal)
-      // console.log("Key up");
 
     inputElement.addEventListener("change", showTotal)
-      // console.log("Change");
   }
   showTotal()
 });
