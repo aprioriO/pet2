@@ -1,41 +1,24 @@
-// document.addEventListener("DOMContentLoaded", function() {
-//   console.log('Your document is ready!');
-//
-//   const price = 299;
-//
-//   function showTotal() {
-//     var totalElement = document.getElementsByClassName('js-total').item(0) // find span element with initial total value
-//     var inputElement = document.getElementsByClassName('js-quantity').item(0)
-//     var inputValue = inputElement.value
-//     var myButton = document.getElementById('js-btn')
-//
-//     var newTotal = inputValue * price
-//     totalElement.innerHTML = "$" + newTotal
-//
-//     myButton.addEventListener("click", showTotal)
-//     inputElement.addEventListener("keyup", showTotal)
-//     inputElement.addEventListener("change", showTotal)
-//   }
-//   showTotal()
-// });
+document.addEventListener('DOMContentLoaded', function () {
+  const price = 299
 
-document.addEventListener("DOMContentLoaded", function() {
-  console.log('Your document is ready!');
-
-  const price = 299;
-  var totalElement = document.getElementsByClassName('js-total').item(0) // find span element with initial total value
-  var inputElement = document.getElementsByClassName('js-quantity').item(0)
-
-  inputElement.addEventListener("keyup", showTotal)
-  inputElement.addEventListener("change", showTotal)
-
-  var myButton = document.getElementById('js-btn')
-  myButton.addEventListener("click", showTotal)
-
-
-  function showTotal() {
-    var inputValue = inputElement.value
-    var newTotal = inputValue * price
-    totalElement.innerHTML = "$" + newTotal
+  function calcAndShowPrice ({ card, quantityEl, totalEl }) { // q->t
+    var quantity = quantityEl.value
+    totalEl.innerText = '$' + quantity * price
   }
+
+  var allCards = document.querySelectorAll('.card')
+  allCards.forEach(function (card) {
+    var totalEl = card.querySelector('.js-total')
+    var quantityEl = card.querySelector('.js-quantity')
+
+    function eventHandler () {
+      calcAndShowPrice({ card, totalEl, quantityEl }) // t->q
+    }
+
+    var calculateBtn = card.querySelector('.js-button')
+    calculateBtn.addEventListener('click', eventHandler)
+
+    quantityEl.addEventListener('keyup', eventHandler)
+    quantityEl.addEventListener('change', eventHandler)
+  })
 })
