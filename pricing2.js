@@ -1,18 +1,12 @@
 document.addEventListener("DOMContentLoaded", function() {
-  console.log('Your document is ready!');
 
   const price = 299;
-  // var inputElement = document.querySelector('.js-quantity')
-  // inputElement.addEventListener("keyup", showTotal)
-  // inputElement.addEventListener("change", showTotal)
-
-  // -- try code
 
   function showTotal(card) {
     var quantityEl = card.querySelector('.js-quantity')
     var quantity = quantityEl.value
-    var totalElement = card.querySelector('.js-total')
-    totalElement.innerText = "$" + quantity * price
+    var totalEl = card.querySelector('.js-total')
+    totalEl.innerText = "$" + quantity * price
   }
 
   var allCards  = document.querySelectorAll('.card')
@@ -23,6 +17,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     var calculateBtn = card.querySelector('.js-button')
-    calculateBtn.addEventListener("click", eventHandler)
+    calculateBtn.addEventListener('click', eventHandler)
+
+    var quantityEl = card.querySelector('.js-quantity')
+    quantityEl.addEventListener('keyup', eventHandler)
+    quantityEl.addEventListener('change', eventHandler)
   })
 })
