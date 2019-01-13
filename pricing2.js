@@ -24,14 +24,20 @@ document.addEventListener("DOMContentLoaded", function() {
   console.log('Your document is ready!');
 
   const price = 299;
-  var totalElement = document.querySelector('js-total')// find span element with initial total value
-  var inputElement = document.querySelector('js-quantity')
+  var totalElement = document.querySelector('.js-total')// find span element with initial total value
+  var inputElement = document.querySelector('.js-quantity')
 
   inputElement.addEventListener("keyup", showTotal)
   inputElement.addEventListener("change", showTotal)
 
-  var myButton = document.querySelector('js-btn')
+  var myButton = document.querySelector('.js-button')
   myButton.addEventListener("click", showTotal)
+
+  function findInnerelemts() {
+    var currentCard = document.querySelector('.card')
+    console.log("These are my cards:" + currentCard);
+  }
+  findInnerelemts()
 
   function showTotal() {
     totalElement.innerHTML = "$" + inputElement.value * price
