@@ -2,19 +2,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const price = 299;
 
-  function showTotal(card, quantityEl) {
+  function calcAndShowPrice({card, quantityEl, totalEl}) { // q->t
     var quantity = quantityEl.value
-    var totalEl = card.querySelector('.js-total')
     totalEl.innerText = "$" + quantity * price
   }
 
-  var allCards  = document.querySelectorAll('.card')
+  var allCards = document.querySelectorAll('.card')
   allCards.forEach(function(card) {
-    // var card
+    var totalEl = card.querySelector('.js-total')
     var quantityEl = card.querySelector('.js-quantity')
 
     function eventHandler() {
-      showTotal(card, quantityEl) // card = card
+      calcAndShowPrice({card, totalEl, quantityEl}) // t->q
     }
 
     var calculateBtn = card.querySelector('.js-button')
